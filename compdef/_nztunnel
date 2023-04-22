@@ -1,0 +1,22 @@
+#compdef nztunnel
+
+_nztunnel() {
+	_arguments \
+		'(- *)'{-h,--help}'[show help]' \
+		'1: :->hostname' \
+		'2: :->mode'
+
+	case $state in
+		hostname)
+			_values \
+				'hostname' \
+				'sample' \
+			;;
+		mode)
+			_values \
+				'mode' \
+				'connect[port forwarding start]' \
+				'disconnect[port forwarding stop]'
+			;;
+	esac
+}
